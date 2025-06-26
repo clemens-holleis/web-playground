@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Zilla+Slab&display=swap');
+
+@function makelongshadow($color,$size) {
+  $val: 0px 0px $color;
+  @for $i from 1 through $size {
+    //$color2: lighten($color, $i*0.8);
+    $val: #{$val}, #{$i*-1}px #{$i}px #{$color};
+  }
+  @return $val;
+}
+
+@mixin longshadow($color,$size) {
+  text-shadow: makelongshadow($color,$size);
+}
+
+:root{
+  font-size:80px;  
+}
+body{
+  padding:0px;
+}
+
+div#copy {
+  
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  height:100vh;
+  
+  align-self:center;
+  font-size: 1rem;
+  font-family: 'Zilla Slab', serif;
+  line-height: 0.8em;
+  font-weight: 900;
+  margin:auto;
+  text-transform: uppercase;
+  color:#fff;
+  @include longshadow(#000,1500);
+}
+
+
+body{
+  background-color:#FEED00;
+}
+
