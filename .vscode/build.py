@@ -1,4 +1,5 @@
-from logging import root
+#!/usr/bin/env python3
+
 from pathlib import Path
 import urllib.parse
 from textwrap import dedent, indent
@@ -6,7 +7,8 @@ from textwrap import dedent, indent
 INDENT = lambda x=1 : " "*(4*x)
 class IndexBuilder:
     def __init__(self) -> None:
-        self.root = Path(__file__).parent
+        print('starting build')
+        self.root = Path(__file__).parent.parent
         self.index = (self.root / 'index.html')
 
     @property
