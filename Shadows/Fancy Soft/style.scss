@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css?family=Zilla+Slab&display=swap");
+
+@function makelongshadow($color,$size) {
+  $val: false;
+  @for $i from 1 through 3 {
+    //$color2: lighten($color, $i*0.8);
+    @if not $val {
+      $val: #{$i*10*-1}px #{$i*10}px #{$i*10}px rgba(0, 0, 0, 0.1);
+    } @else {
+      $val: #{$val}, #{$i*10*-1}px #{$i*10}px #{$i*10}px rgba(0, 0, 0, 0.1);
+    }
+  }
+  @return $val;
+}
+
+@mixin longshadow($color,$size) {
+  text-shadow: makelongshadow($color, $size);
+}
+
+$main: #fff;
+#fat {
+  font-size: 200px;
+  font-weight: 900;
+  color: $main;
+  @include longshadow(#000,30);
+}
+body {
+  background-color: $main;
+}
