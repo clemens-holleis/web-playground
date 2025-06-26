@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dark Mode Detection</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: sans-serif;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.light {
+      background: #ffffff;
+      color: #000000;
+    }
+
+    body.dark {
+      background: #121212;
+      color: #ffffff;
+    }
+
+    .mode-label {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="mode-label">Detecting theme...</div>
+
+  <script>
+    const modeLabel = document.querySelector('.mode-label');
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function applyTheme(isDark) {
+      document.body.classList.toggle('dark', isDark);
+      document.body.classList.toggle('light', !isDark);
+      modeLabel.textContent = isDark ? '🌙 Dark Mode' : '☀️ Light Mode';
+    }
+
+    // Initial check
+    applyTheme(mediaQuery.matches);
+
+    // React to changes
+    mediaQuery.addEventListener('change', (e) => {
+      applyTheme(e.matches);
+    });
+  </script>
+</body>
+</html>
