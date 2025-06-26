@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-theme="light">
+    Test
+
+    <button>Toggle Theme</button>
+</body>
+<script>
+    document.querySelector("button").addEventListener("click", function () {
+        const body = document.body;
+        const scheme = body.getAttribute("data-theme");
+        if (scheme == "light") {
+            body.setAttribute("data-theme", "dark");
+        } else {
+            body.setAttribute("data-theme", "light");
+        }
+    });
+
+</script>
+
+
+</html>

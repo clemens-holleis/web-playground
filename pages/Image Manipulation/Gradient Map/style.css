@@ -1,0 +1,72 @@
+.gradient-map {
+  position: relative;
+  display: inline-block;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* mix-blend-mode: hard-light; */
+  pointer-events: none;
+}
+
+#a .gradient-overlay {
+  background: linear-gradient(to right, #0000ff, #ff0000);
+  mix-blend-mode: color;
+}
+
+#b .gradient-overlay {
+  background: #a12929;
+  mix-blend-mode: color;
+}
+
+#c .gradient-overlay {
+  background: #e7cca2;
+  mix-blend-mode: multiply;
+  box-shadow: inset 0px 0px 300px #4a4da1;
+}
+
+#d {
+  img{
+    filter: grayscale();
+  }
+  .gradient-overlay {
+    background: #ff9d00;
+    mix-blend-mode: multiply;
+  }
+  .gradient-overlay.two {
+    background: #a10041;
+    mix-blend-mode: screen;
+  }
+}
+
+/* PSEUDO ELEMENTS */
+
+.gradient-map-pseudo {
+  position: relative;
+  display: inline-block;
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0; /* shorthand for top: 0; right: 0; bottom: 0; left: 0 */
+    background: linear-gradient(to right, #0000ff, #ff0000); /* Replace with your gradient */
+    mix-blend-mode: color;
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
