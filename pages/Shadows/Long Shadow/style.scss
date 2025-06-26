@@ -12,7 +12,11 @@
 @mixin longshadow($color,$size) {
   text-shadow: makelongshadow($color,$size);
 }
-
+*{
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
 :root{
   font-size:80px;  
 }
